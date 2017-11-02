@@ -1,0 +1,3 @@
+02-11-17 15:51: TypoScript config.noScaleUp is deprecated - The TypoScript property "config.noScaleUp" is deprecated since TYPO3 v8 and will be removed in TYPO3 v9. Please use the global TYPO3 configuration setting "GFX/processor_allowUpscaling" instead.
+02-11-17 15:52: TypoScript config.noScaleUp is deprecated - The TypoScript property "config.noScaleUp" is deprecated since TYPO3 v8 and will be removed in TYPO3 v9. Please use the global TYPO3 configuration setting "GFX/processor_allowUpscaling" instead.
+02-11-17 15:52: TypoScript config.noScaleUp is deprecated - The TypoScript property "config.noScaleUp" is deprecated since TYPO3 v8 and will be removed in TYPO3 v9. Please use the global TYPO3 configuration setting "GFX/processor_allowUpscaling" instead.

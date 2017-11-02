@@ -1,0 +1,72 @@
+baseURL = typo3.p123456.webspaceconfig.de
+
+protocol = http://
+[globalString = IENV:TYPO3_SSL=1]
+    protocol = https://
+[global]
+
+
+
+
+
+
+
+
+og.logo = fileadmin/Dateien/Bilder/OpenGraph/url-zum-bild-1200x630.png
+og.titlesuffix = OG:TitleSuffix
+og.description = description
+og.locale = de_DE
+og.type = website
+timeformat = %d.%m.%Y %T
+
+tw.site = @twittername
+tw.titlesuffix = TW:TitleSuffix
+tw.description = description
+tw.image = fileadmin/Dateien/Bilder/Twitter/url-zum-bild-1200x630.png
+
+
+
+
+### Remove clear.gif in headers
+###################################
+content.headerSpace = 0|0
+
+
+PAGE_TARGET =
+content.pageFrameObj =
+
+
+
+### Allow iframe, video in RTE
+##############################
+styles.content.links {
+    allowTags  (
+         table, tbody, thead, caption, tr, th, td, h1, h2, h3, h4, h5, h6, div, p, br, span, ul, ol, li, re, blockquote, strong, em, b, i, u, sub, sup, strike, a, img, nobr, hr, tt, q, cite, abbr, acronym, center, bgcolor, bg, color, underline, script, video, iframe,noscript,iframe,script,video,embed,object,source,noscript,article,header,hgroup,footer,aside,section
+    )
+}
+
+
+
+
+## Rendering textmedia
+#-----------------------------
+styles.content.textmedia {
+    maxWInText = 0
+    maxW = 0
+    borderWidth = 0
+}
+
+
+
+
+
+## Sourceopt
+#------------------------------------------------------
+sourceopt {
+    enabled = 1
+    formatHtml = 1
+    formatHtml.tabSize = 0 # gesetzt werden, damit wirklich nur 1 Line das Resultat ist
+    #formatHtml.debugComment = 1
+}
+
+

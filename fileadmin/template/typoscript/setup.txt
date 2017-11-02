@@ -1,0 +1,194 @@
+
+#Links	1
+#Normal	0
+#Rechts	2
+#Rand	3
+
+# Rendering Content - Columns
+
+lib.content < styles.content.get
+lib.content.select.where = colPos = 0
+lib.sliderTop < styles.content.get
+lib.sliderTop.select.where = colPos = 1
+lib.additionalContent < styles.content.get
+lib.additionalContent.select.where = colPos = 3
+
+
+
+## Rendering indexed_search
+#----------------------------
+plugin {
+    tx_indexedsearch {
+        view {
+            templateRootPaths {
+                0 = EXT:indexed_search/Resources/Private/Templates/
+                999 = fileadmin/template/extensions/indexed_search/Resources/Private/Templates/
+            }
+            partialRootPaths {
+                0 = EXT:indexed_search/Resources/Private/Partials/
+                999 = fileadmin/template/extensions/indexed_search/Resources/Private/Partials/
+            }
+            layoutRootPaths {
+                0 = EXT:indexed_search/Resources/Private/Layouts/
+                999 = fileadmin/template/extensions/indexed_search/Resources/Private/Layouts/
+            }
+        }
+    }
+}
+
+
+
+
+## Page
+#---------------------------------
+
+page = PAGE
+page {
+
+    10 = FLUIDTEMPLATE
+    10 {
+
+        file.stdWrap.cObject = CASE
+        file.stdWrap.cObject {
+            # slide the template
+            key.data = levelfield:-1, backend_layout_next_level, slide
+            key.override.field = backend_layout
+
+            # template file for backend-layout with ID x
+            1 = TEXT
+            1.value = fileadmin/template/html/Template/Default.html
+        }
+
+        partialRootPath = fileadmin/template/html/Partial/
+        layoutRootPath = fileadmin/template/html/Layout/
+
+        variables {
+            languageID = TEXT
+            languageID.value = {$languageID}
+            searchPageID = TEXT
+            searchPageID.value = {$searchPageID}
+
+        }
+    }
+
+
+
+
+    meta {
+        X-UA-Compatible = IE=edge,chrome=1
+        X-UA-Compatible.attribute = http-equiv
+        viewport = width=device-width, initial-scale=1
+        format-detection = telephone=no
+        keywords.field = keywords
+        description.field = description
+        language = de
+        robots = index,follow,noodp
+        googlebot = index,follow,noodp
+        copyright = Copyright
+        author = Author
+        publisher = Publisher
+        page-topic = software,consulting
+        audience = all
+        apple-mobile-web-app-capable = yes
+        apple-mobile-web-app-status-bar-style = black
+        apple-mobile-web-app-title = {$og.titlesuffix}
+        mobile-web-app-capable = yes
+
+    }
+
+
+    includeCSS {
+        css1 = fileadmin/template/assets/css/style.css
+        css1.media = all
+    }
+
+
+
+
+    includeJSFooter {
+        #script = fileadmin/template/assets/js/script.js
+    }
+
+
+    typeNum = 0
+
+
+} #page End
+
+
+
+## config
+#---------------------------------
+
+config {
+    doctype = html5
+    baseURL >
+    baseURL =
+    absRefPrefix = /
+    renderCharset= utf-8
+    metaCharset = utf-8
+    xhtml_cleaning = all
+    xmlprologue = none
+    tx_realurl_enable = 1
+    disablePrefixComment = 1
+    disableImgBorderAttr = 1
+    prefixLocalAnchors >
+    prefixLocalAnchors =
+    inlineStyle2TempFile = 0
+    # -> Auslagern Default CSS = 1, inline = 0
+    removeDefaultCss = 1
+    # -> Deactivate default css in general = 1
+    #removePageCss = 0
+    # -> Deactivate css styled content css = 1
+
+    moveJsFromHeaderToFooter = 1
+    removeDefaultJS = 0
+    # 0 = inline, file = external
+
+    noPageTitle = 2
+    htmlTag_langKey = de
+
+    defaultGetVars.L = 1
+    language = de
+    locale_all = de_DE.UTF-8
+    sys_language_uid = 1
+    uniqueLinkVars = 1
+    linkVars = L(0-1)
+
+    headerComment >
+    headerComment =
+
+    compressCss = 1
+    concatenateCss = 1
+
+    compressJs = 1
+    concatenateJs = 1
+
+    noScaleUp = 1
+    #admPanel = 1
+
+    cache = 1
+    no_cache = 0
+
+    sendCacheHeaders = 1
+    enableContentLengthHeader = 1
+
+    #optionale // globale Cachesteuerung hier: 30 Tage
+    cache_period = 2592000
+    debug = 1
+
+    htmlTag_setParams = xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Thing" class="no-js" lang="de"
+    #htmlTag_stdWrap.wrap (
+<!--[if IE 9]><html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Thing" lang="de" class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Thing" lang="de" class="no-js"> <!--<![endif]-->
+# )
+
+
+# Allow content included from anywhere in the page tree
+content_from_pid_allowOutsideDomain = 1
+# Mounting points from anywhere in pagetree
+MP_mapRootPoints = root
+
+
+} #config END
+
